@@ -1,0 +1,21 @@
+.grid-container {
+  margin: 100px 10vw -36px;
+}
+
+.grid-item {
+}
+
+.grid-paper {
+  padding: 0 10px 10px;
+  overflow-y: scroll;
+  height: calc(100vh - 100px - 36px);
+}
+
+.grid-paper-content {
+  padding-top: 10px;
+}
+
+.list-subheader {
+  padding-top: 10px;
+  background-color: white !important;
+}

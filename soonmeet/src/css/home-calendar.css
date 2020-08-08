@@ -1,0 +1,156 @@
+#calendar {
+  border: 2px solid #343a40;
+  margin: 100px 10vw 36px;
+  display: grid;
+  box-shadow: #5b696f 2px 2px 2px;
+  grid-template-columns: [monday] 1fr [tuesday] 1fr [wednesday] 1fr [thursday] 1fr [friday] 1fr [saturday] 1fr [sunday] 1fr;
+  /*grid-template-columns: 1fr;*/
+  min-height: 1440px;
+}
+
+.weekday-header {
+  margin-left: -1px;
+  margin-top: -2px;
+  /*border-bottom: 1px solid #343a40;*/
+  margin-right: -0px;
+  /*border-top: none;*/
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+  word-break: keep-all;
+  position: sticky;
+  top: 66px;
+  background-color: #d4d4d4;
+  border: 1px solid #343a40;
+  border-right: none;
+  border-top: 2px solid #343a40;
+  z-index: 10;
+}
+
+.weekday-header-short {
+  display: none;
+}
+
+@media (max-width: 900px) and (min-width: 600px) {
+  .weekday-header {
+    display: none;
+  }
+
+  .weekday-header-short {
+    display: block;
+  }
+}
+
+@media (max-width: 599px) {
+  #calendar {
+    grid-template-columns: 1fr;
+  }
+}
+
+.weekday-events {
+  height: 1440px;
+  /*background-color: #e4e4e4;*/
+  position: relative;
+  background:repeating-linear-gradient(0deg, #f4f4f4 0%, #f4f4f4 59px, #343a40 60px);
+}
+
+.day-column:last-of-type > .weekday-header {
+  /*border-right: none;*/
+}
+
+.day-column {
+  border-right: 1px solid #343a40;
+  background-color: #d4d4d4;
+}
+
+.day-column-active > .weekday-header {
+  color: white;
+  background-color: #007bff;
+}
+
+.day-column:last-of-type {
+  border-right: none;
+}
+
+.day-column-selected > .weekday-header {
+  background-color: #b4b4b4;
+}
+
+.calendar-event {
+  border: solid 1px #006bd4;
+  background-color: #007bff;
+  opacity: 0.9;
+  padding: 2px;
+  color: white;
+  height: 123px;
+  max-width: 100%;
+  font-size: 0.85rem;
+  position: absolute;
+  width: 100%;
+  top: 115px;
+  cursor: pointer;
+  word-break: break-word;
+  /*overflow: scroll;*/
+  overflow: hidden;
+}
+
+.multiple-events-container {
+  position: absolute;
+  width: 100%;
+  height: 0; /* for clicking adding event */
+  display: flex;
+}
+
+.multiple-events-container > .calendar-event {
+  position: relative;
+  font-size: 0.7rem;
+  transition: 0.4s;
+}
+
+.multiple-events-container > .calendar-event:hover {
+  width: 10000%;
+  z-index: 1;
+  opacity: 1;
+}
+
+.calendar-event {
+  transition: 0.4s;
+}
+
+.calendar-event:hover {
+  opacity: 1;
+}
+
+.calendar-event.calendar-meeting.meeting-pending {
+  background-color: #beb700;
+  border: 1px #928e00 solid;
+}
+
+.calendar-event.calendar-meeting.meeting-rejected {
+  background-color: red;
+  border: 1px solid #d40000;
+}
+
+.linear-progress {
+  width: 100%;
+  position: fixed;
+  z-index: 20;
+  top: 68px;
+  margin-bottom: -4px;
+}
+
+#time-marker {
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: red;
+}
+
+.meeting-over-msg {
+  display: block;
+  text-align: right;
+  color: gray;
+}

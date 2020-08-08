@@ -1,0 +1,37 @@
+.nav-bar-component {
+    margin-left: 20px;
+}
+
+@keyframes usernameShow {
+    from { font-size: 0; margin-left: 0; }
+    to { font-size: 1rem; margin-left: 10px; }
+}
+
+@keyframes usernameHide {
+    from { font-size: 1rem; margin-left: 10px ;}
+    to { font-size: 0; margin-left: 0 }
+}
+
+.time-pickers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .time-pickers {
+        grid-template-columns: 1fr;
+    }
+
+    .length-picker {
+        width: 100%;
+    }
+}
+
+.navbar {
+    min-height: 68px;
+}
+
+.navbar-toggler {
+    border: none;
+}
